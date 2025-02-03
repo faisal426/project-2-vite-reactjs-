@@ -1,0 +1,17 @@
+<html>
+  <body></body>
+  <script>
+    async function api(){
+    
+    //minta data dari server dgn http
+      const request = await fetch("https://jsonplaceholder.typicode.com/users")
+      
+      //ubah kiriman server menjadi json
+      const respon = await request.json()
+      
+      //tampilkan data pada layar
+      console.log(respon)
+    }
+    api();
+  </script>
+</html>

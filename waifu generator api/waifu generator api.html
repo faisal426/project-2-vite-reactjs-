@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Waifu</title>
+</head>
+<style>
+  * {
+    
+    margin: 0;
+    padding: 0;
+    
+}
+a{
+  -webkit-tap-highlight-color: transparent;
+}
+html{
+  scroll-behavior:smooth;
+}
+
+  .center{
+    margin: 50px 0 0 0;
+    text-align:center;
+  }
+  .center h2{
+    margin: 0 0 20px 0;
+  }
+  .kantong {
+    text-align: center;
+    margin: 30px 0 0 0;
+  }
+   .kantong img{
+     width: 216px;
+     height: 324px;
+     
+   }
+
+  button.bu1{
+  background:#4900FF;
+  color:white;
+  border:none;
+  padding:15px 18px 15px 18px;
+  border-radius:7px;
+  transition: transform 0.3s ease-out;
+}
+button.bu1:active{
+  transform:scale(0.8);
+}
+</style>
+<body>
+  <div class="center">
+    
+    <h2>Random Waifu <br>Generator</h2>
+    <button class="bu1" onclick="getWaifu()">Dapatkan Waifu</button>
+  </div>
+  <div class="kantong">
+    
+    <img id="waifuimage" src=" " >
+  </div>
+
+  
+    <script>
+        function getWaifu() {
+            fetch('https://api.waifu.pics/sfw/waifu')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('waifuimage').src = data.url;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
